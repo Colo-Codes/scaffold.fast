@@ -1,0 +1,10 @@
+---
+description: File placement and ownership conventions
+alwaysApply: true
+---
+
+- Shared UI components: `src/components`.
+- Feature-specific UI and logic: `src/features/<feature>`.
+- Generic hooks: `src/hooks`.
+- Shared types: `src/types`.
+- Utility functions without framework coupling: `src/utils`.

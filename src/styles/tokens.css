@@ -1,0 +1,19 @@
+@theme {
+  --color-background: hsl(0 0% 100%);
+  --color-foreground: hsl(222 47% 11%);
+  --color-muted: hsl(210 40% 96%);
+  --color-muted-foreground: hsl(215 16% 47%);
+  --color-border: hsl(214 32% 91%);
+  --color-primary: hsl(222 89% 55%);
+  --color-primary-foreground: hsl(210 40% 98%);
+}
+
+:root.dark {
+  --color-background: hsl(222 47% 11%);
+  --color-foreground: hsl(210 40% 98%);
+  --color-muted: hsl(217 33% 17%);
+  --color-muted-foreground: hsl(215 20% 65%);
+  --color-border: hsl(217 33% 20%);
+  --color-primary: hsl(217 91% 60%);
+  --color-primary-foreground: hsl(210 40% 98%);
+}

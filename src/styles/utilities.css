@@ -1,0 +1,9 @@
+@layer utilities {
+  .container-page {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 64rem;
+    padding-inline: 1.5rem;
+    padding-block: 2rem;
+  }
+}

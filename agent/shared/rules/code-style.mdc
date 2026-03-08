@@ -1,0 +1,10 @@
+---
+description: Code style defaults
+alwaysApply: true
+---
+
+- Prefer explicit names over abbreviations.
+- Prefer early returns to reduce nesting.
+- Use `const` for functions (`const handleClick = () => {}`).
+- Keep imports at the top of each module.
+- Avoid nested ternaries.

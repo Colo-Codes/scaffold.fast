@@ -1,0 +1,20 @@
+name: PR Checks
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check-title:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR title prefix
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          echo "PR title: $PR_TITLE"
+          if [[ "$PR_TITLE" =~ ^(feat|fix|refactor|perf|test|docs|build|ci|chore)(\([a-z0-9-]+\))?:\  ]]; then
+            exit 0
+          fi
+          echo "PR title must use Conventional Commit format: <type>(<scope>): <summary>"
+          exit 1

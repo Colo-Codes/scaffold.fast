@@ -1,0 +1,7 @@
+.next
+node_modules
+coverage
+dist
+playwright-report
+test-results
+convex/_generated

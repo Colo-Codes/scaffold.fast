@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+echo "Running local quality checks (lint, typecheck, tests)..."
+yarn check:all
+
+if ! command -v gh >/dev/null 2>&1; then
+  echo "Skipping PR title validation (gh CLI is unavailable)."
+  exit 0
+fi
+
+if ! PR_TITLE="$(gh pr view --json title --jq '.title' 2>/dev/null)"; then
+  echo "Skipping PR title validation (no open PR found for this branch yet)."
+  exit 0
+fi
+
+if [[ ! "$PR_TITLE" =~ ^(feat|fix|refactor|perf|test|docs|build|ci|chore)(\([a-z0-9-]+\))?:\ .+ ]]; then
+  echo "Open PR title is invalid."
+  echo "Expected format: <type>(<scope>): <summary>"
+  echo "Allowed types: feat, fix, refactor, perf, test, docs, build, ci, chore"
+  exit 1
+fi

@@ -1,0 +1,9 @@
+---
+description: Architectural boundaries and layering rules
+alwaysApply: true
+---
+
+- Keep Next.js route files in `src/app`.
+- Keep business feature logic in `src/features`.
+- Keep integration adapters in `src/lib`.
+- Keep backend logic in `convex`; do not import frontend modules there.

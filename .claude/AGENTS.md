@@ -1,0 +1,1 @@
+../agent/shared/AGENTS.md
