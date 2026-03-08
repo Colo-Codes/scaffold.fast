@@ -21,6 +21,7 @@ Rules:
 - Start `<summary>` with a lowercase letter (except proper nouns/acronyms).
 - Do not end `<summary>` with punctuation.
 - Keep each commit focused on one logical change.
+- Keep commit body lines at 255 characters or less.
 
 Allowed `<type>` values:
 
@@ -85,7 +86,7 @@ If needed, edit the generated squash description so it clearly explains user imp
 Local hooks are managed with `husky` and run automatically after install.
 
 - `commit-msg`: validates every commit message against `commitlint.config.cjs`
-- `pre-push`: runs `yarn check:all` and validates the current branch PR title (when an open PR exists)
+- `pre-push`: validates commit messages in the push range, runs `yarn check:all`, and validates the current branch PR title (when an open PR exists)
 
 If hooks do not seem active, run:
 

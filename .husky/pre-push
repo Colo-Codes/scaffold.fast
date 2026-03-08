@@ -2,6 +2,31 @@
 
 set -euo pipefail
 
+ZERO_SHA="0000000000000000000000000000000000000000"
+
+echo "Running commit message validation for commits being pushed..."
+while read -r local_ref local_sha remote_ref remote_sha; do
+  if [[ -z "${local_sha:-}" || -z "${remote_sha:-}" ]]; then
+    continue
+  fi
+
+  if [[ "$local_sha" == "$ZERO_SHA" ]]; then
+    continue
+  fi
+
+  if [[ "$remote_sha" == "$ZERO_SHA" ]]; then
+    if git rev-parse --verify --quiet origin/main >/dev/null; then
+      base_sha="$(git merge-base "$local_sha" origin/main)"
+      yarn commitlint --from "$base_sha" --to "$local_sha"
+    else
+      echo "Skipping commit range lint for new branch (origin/main unavailable)."
+    fi
+    continue
+  fi
+
+  yarn commitlint --from "$remote_sha" --to "$local_sha"
+done
+
 echo "Running local quality checks (lint, typecheck, tests)..."
 yarn check:all
 
