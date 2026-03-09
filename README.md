@@ -20,6 +20,36 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+## Start a New Project From This Template
+
+Use this repository as a clean starting point for a new app.
+
+1. Create a repository from this template:
+   - GitHub UI: **Use this template**
+   - or GitHub CLI: `gh repo create <new-repo-name> --template <owner>/scaffold.fast --private`
+2. Clone your new repository and bootstrap locally:
+   - `cp .env.example .env.local`
+   - `yarn install`
+   - `yarn dev`
+3. Configure required environment variables in `.env.local`:
+   - `NEXT_PUBLIC_CONVEX_URL`
+   - `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`
+   - `CLERK_SECRET_KEY`
+4. Validate baseline quality before feature work:
+   - `yarn check:all`
+5. Keep project structure conventions:
+   - Routes in `src/app`
+   - Shared UI in `src/components`
+   - Feature modules in `src/features`
+   - Integration adapters in `src/lib`
+   - Backend logic in `convex`
+6. Customize starter content early:
+   - Update `package.json` name/description
+   - Replace starter app content in `src/app`
+   - Update docs in `README.md` and `docs/`
+
+This flow keeps all existing guardrails (TypeScript strict mode, linting, tests, Husky hooks, and CI) while giving you a clean repo history for the new project.
+
 ## Core Scripts
 
 - `yarn dev` - Start local development server
