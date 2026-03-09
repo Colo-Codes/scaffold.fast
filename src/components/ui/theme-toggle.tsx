@@ -1,13 +1,32 @@
 'use client';
 
 import { Moon, Sun } from 'lucide-react';
-
-import { useTheme } from '@/hooks/use-theme';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 export const ThemeToggle = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
+  const [isMounted, setIsMounted] = useState(false);
 
-  const isDarkTheme = theme === 'dark';
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const currentTheme = resolvedTheme === 'dark' ? 'dark' : 'light';
+  const isDarkTheme = currentTheme === 'dark';
+
+  const handleToggleTheme = () => {
+    if (!isMounted) {
+      return;
+    }
+
+    if (isDarkTheme) {
+      setTheme('light');
+      return;
+    }
+
+    setTheme('dark');
+  };
 
   return (
     <button
@@ -15,7 +34,7 @@ export const ThemeToggle = () => {
       role="switch"
       aria-checked={isDarkTheme}
       aria-label="Toggle theme"
-      onClick={toggleTheme}
+      onClick={handleToggleTheme}
       className="border-border bg-muted/70 focus-visible:border-ring focus-visible:ring-ring/50 relative inline-flex h-[34px] w-[68px] items-center rounded-full border transition-colors hover:cursor-pointer focus-visible:ring-2 focus-visible:outline-none"
     >
       <Sun

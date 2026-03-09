@@ -1,6 +1,7 @@
 'use client';
 
 import { ClerkProvider, useAuth } from '@clerk/nextjs';
+import { ThemeProvider } from 'next-themes';
 import type { ReactNode } from 'react';
 
 import { ConvexProviderWithClerk } from '@/features/auth/components/convex-provider-with-clerk';
@@ -14,14 +15,20 @@ export const AppProviders = ({ children }: AppProvidersProps) => {
   const convex = getConvexClient();
 
   if (!convex) {
-    return <ClerkProvider>{children}</ClerkProvider>;
+    return (
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem storageKey="theme">
+        <ClerkProvider>{children}</ClerkProvider>
+      </ThemeProvider>
+    );
   }
 
   return (
-    <ClerkProvider>
-      <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
-        {children}
-      </ConvexProviderWithClerk>
-    </ClerkProvider>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem storageKey="theme">
+      <ClerkProvider>
+        <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
+          {children}
+        </ConvexProviderWithClerk>
+      </ClerkProvider>
+    </ThemeProvider>
   );
 };
