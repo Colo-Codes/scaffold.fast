@@ -8,3 +8,5 @@
    - `yarn dev`
 4. Run quality checks:
    - `yarn check:all`
+5. Build UI with project primitives:
+   - Prefer `src/components/ui` shadcn/ui components for new screens and features.

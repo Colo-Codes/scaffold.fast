@@ -7,6 +7,7 @@ Reusable, production-ready boilerplate for projects using:
 - Convex backend
 - Clerk + Convex auth wiring
 - Tailwind CSS with light/dark themes
+- shadcn/ui component primitives
 - ESLint + Prettier + test tooling
 - AI-agent shared instructions with symlinked adapters
 
@@ -66,7 +67,7 @@ This flow keeps all existing guardrails (TypeScript strict mode, linting, tests,
 ```text
 src/
   app/         # routes, layouts, route handlers
-  components/  # reusable UI primitives
+  components/  # shadcn/ui primitives and shared UI components
   features/    # business modules by domain
   lib/         # integration and infrastructure helpers
   hooks/       # generic reusable hooks
@@ -79,6 +80,12 @@ convex/        # backend schema and server modules
 docs/          # architecture, guides, onboarding, ADRs
 agent/shared/  # single source of truth for AI instructions
 ```
+
+## UI Conventions (shadcn/ui)
+
+- Base component primitives live in `src/components/ui`.
+- Compose feature or route UIs from those primitives instead of ad-hoc one-off styles.
+- Keep Tailwind tokens and theme behavior centralized in `src/styles`.
 
 ## GitHub Workflow
 

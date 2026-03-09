@@ -4,6 +4,7 @@
 
 - `src`: Next.js App Router frontend.
 - `convex`: Convex backend schema and server-side logic.
+- UI primitives are implemented with shadcn/ui in `src/components/ui`.
 
 ## Data Flow
 

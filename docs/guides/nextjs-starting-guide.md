@@ -12,6 +12,7 @@
 - Add a route: create `src/app/<segment>/page.tsx`.
 - Add API endpoint: create `src/app/api/<name>/route.ts`.
 - Add shared component: create under `src/components`.
+- Add or extend base UI primitives: use `src/components/ui` (shadcn/ui pattern).
 
 ## Pitfalls to Avoid
 
