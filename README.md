@@ -8,6 +8,7 @@ Reusable, production-ready boilerplate for projects using:
 - Clerk + Convex auth wiring
 - Tailwind CSS with light/dark themes
 - shadcn/ui component primitives
+- Lucide React icons
 - ESLint + Prettier + test tooling
 - AI-agent shared instructions with symlinked adapters
 
@@ -86,6 +87,7 @@ agent/shared/  # single source of truth for AI instructions
 - Base component primitives live in `src/components/ui`.
 - Compose feature or route UIs from those primitives instead of ad-hoc one-off styles.
 - Keep Tailwind tokens and theme behavior centralized in `src/styles`.
+- Use `lucide-react` for shared iconography across pages and components.
 
 ## GitHub Workflow
 
