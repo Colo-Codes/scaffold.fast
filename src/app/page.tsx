@@ -1,3 +1,6 @@
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 const projectHighlights = [
@@ -23,14 +26,27 @@ const HomePage = () => {
           practical team workflows so new projects can ship faster without sacrificing
           maintainability.
         </p>
+        <div className="flex flex-wrap items-center gap-3">
+          <Badge>shadcn/ui enabled</Badge>
+          <Badge variant="secondary">Tailwind v4</Badge>
+          <Button size="sm">Primary action</Button>
+          <Button size="sm" variant="outline">
+            Secondary action
+          </Button>
+        </div>
       </header>
 
       <section className="grid gap-3 sm:grid-cols-2">
         {projectHighlights.map((highlight) => {
           return (
-            <article key={highlight} className="border-border bg-muted/40 rounded-lg border p-4">
-              <p className="text-foreground text-sm">{highlight}</p>
-            </article>
+            <Card key={highlight} className="bg-muted/40">
+              <CardHeader>
+                <CardTitle className="text-base">Project highlight</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-foreground text-sm">{highlight}</p>
+              </CardContent>
+            </Card>
           );
         })}
       </section>

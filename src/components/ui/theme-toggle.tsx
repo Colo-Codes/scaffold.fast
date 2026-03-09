@@ -9,7 +9,7 @@ export const ThemeToggle = () => {
     <button
       type="button"
       onClick={toggleTheme}
-      className="border-border inline-flex items-center rounded-md border px-3 py-2 text-sm"
+      className="border-border inline-flex items-center rounded-md border px-3 py-2 text-sm hover:cursor-pointer"
       aria-label="Toggle theme"
     >
       Theme: {theme}

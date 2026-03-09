@@ -4,11 +4,12 @@ import '@/styles/themes.css';
 import '@/styles/utilities.css';
 
 import type { Metadata } from 'next';
+import { Geist } from "next/font/google";
 import type { ReactNode } from 'react';
 
-import { AppProviders } from './providers';
-import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
+
+import { AppProviders } from './providers';
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
